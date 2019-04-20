@@ -56,14 +56,14 @@
 		"test": "npm run compile && node ./node_modules/vscode/bin/test"
 	},
 	"devDependencies": {
-		"typescript": "^3.3.1",
-		"vscode": "^1.1.28",
-		"tslint": "^5.12.1",
+		"@types/mocha": "^2.2.42",
 		"@types/node": "^10.12.21",
-		"@types/mocha": "^2.2.42"
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.33"
 	},
 	"dependencies": {
-		"@postlight/mercury-parser": "^2.0.0",
+		"@postlight/mercury-parser": "^2.1.0",
 		"@types/turndown": "^5.0.0",
 		"turndown": "^5.0.3"
 	}
