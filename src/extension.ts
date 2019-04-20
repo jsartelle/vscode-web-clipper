@@ -1,9 +1,9 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as Mercury from '@postlight/mercury-parser';
+import TurndownService from 'turndown';
 import { URL, URLSearchParams } from 'url';
 import * as vscode from 'vscode';
-import TurndownService = require('turndown');
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
