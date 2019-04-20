@@ -1,0 +1,70 @@
+{
+	"name": "web-clipper",
+	"displayName": "Web Clipper",
+	"description": "Clip web pages into Markdown",
+	"version": "1.0.0",
+	"publisher": "jsartelle",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jsartelle/vscode-web-clipper"
+	},
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:webClipper.clipWebPage",
+		"onUri"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "webClipper.clipWebPage",
+				"title": "Web Clipper: Clip Web Page"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "Web Clipper",
+			"properties": {
+				"webClipper.autoShowPreviewToSide": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically open a preview to the side after a page is clipped."
+				},
+				"webClipper.outputTemplate": {
+					"type": "string",
+					"default": "# ${result.title}\n#### ${result.author ? `by ${result.author}, ` : ''}[${result.domain}](${result.url})${result.date_published ? ` ▪ ${new Date(result.date_published).toLocaleString(undefined, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'})}` : ''}\n\n${markdown}\n\n---\n\nClipped on ${new Date().toLocaleString(undefined, {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit'})}",
+					"markdownDescription": "A custom template that the results will be interpolated into. Use ${result} for the Mercury result object and ${markdown} for the converted Markdown.  \nA list of Mercury result properties can be found [here](https://github.com/postlight/mercury-parser#usage).  \nEdit this setting in the JSON settings editor to show line breaks properly."
+				},
+				"webClipper.turndownOptions": {
+					"type": "object",
+					"default": {},
+					"markdownDescription": "Options to pass to Turndown. A list of valid options can be found [here](https://github.com/domchristie/turndown#options). Advanced options are not supported."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"typescript": "^3.3.1",
+		"vscode": "^1.1.28",
+		"tslint": "^5.12.1",
+		"@types/node": "^10.12.21",
+		"@types/mocha": "^2.2.42"
+	},
+	"dependencies": {
+		"@postlight/mercury-parser": "^2.0.0",
+		"@types/turndown": "^5.0.0",
+		"turndown": "^5.0.3"
+	}
+}
