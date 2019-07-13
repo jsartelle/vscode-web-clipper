@@ -2,7 +2,7 @@
 	"name": "web-clipper",
 	"displayName": "Web Clipper",
 	"description": "Clip web pages into Markdown",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "jsartelle",
 	"repository": {
 		"type": "git",
